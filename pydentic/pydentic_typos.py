@@ -9,7 +9,3 @@
 # Isso acontece cmg bastante, dos fields se "perderem", e eles explicam aqui o porque
 # e como fazer para contornar isso.
 # # ---------------------------------------
-
-
-# parei aqui nas dicas do pydentic
-#  https://docs.pydantic.dev/usage/models/#required-optional-fields
