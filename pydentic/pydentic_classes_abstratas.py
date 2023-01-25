@@ -1,4 +1,5 @@
 import abc
+
 from pydantic import BaseModel
 
 
@@ -10,5 +11,5 @@ class FooBarModel(BaseModel, abc.ABC):
     def my_abstract_method(self):
         pass
 
-#  achei o modelo interessante, junta pydentic e classes abstratas.
 
+#  achei o modelo interessante, junta pydentic e classes abstratas.

@@ -11,5 +11,5 @@
 # # ---------------------------------------
 
 
-# parei aqui nas dicas do pydentic 
+# parei aqui nas dicas do pydentic
 #  https://docs.pydantic.dev/usage/models/#required-optional-fields

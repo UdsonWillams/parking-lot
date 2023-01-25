@@ -1,11 +1,13 @@
 from pydantic import BaseModel
 
-#classe basica do pydentic, se importa a classe BaseModel
+
+# classe basica do pydentic, se importa a classe BaseModel
 class User(BaseModel):
     id: int
     name = "Udson Willams"
 
-#caso não seja passado que o parametro é opcional, o objeto não é instanciavel
+
+# caso não seja passado que o parametro é opcional, o objeto não é instanciavel
 # user = User()
 # também é necessario mandar os valores com o mesmo tipo que foram instanciados
 # id não pode ser str por exemplo
@@ -13,10 +15,10 @@ class User(BaseModel):
 user_1 = User(id=1)
 # alguns metodos legais ja trazidos pelo BaseModel são os
 # dict, json, parse_object
-print(user_1.dict())  # trás o objeto como dicionario. 
-print(user_1.json())    # trás o objeto como json. 
-# O Parse object faz a classe User conseguir instanciar um objeto a partir de um dicionario.
-# ex.:.
+print(user_1.dict())  # trás o objeto como dicionario.
+print(user_1.json())  # trás o objeto como json.
+# O Parse object faz a classe User conseguir instanciar um objeto
+# a partir de um dicionario. # ex.:.
 new_user = {"id": 2, "name": "joaozinho"}
 user_2 = User.parse_obj(new_user)
 
@@ -32,4 +34,5 @@ assert user_2.name == "joaozinho"
 # cria um modelo sem validação, oque é perigoso mas pode ser util alguma hora.
 user_without_validation = User.construct(number="2")
 print(user_without_validation.number)
-# print(user_without_validation.id) retorna um erro por que o valor nunca foi instanciado.
+# print(user_without_validation.id) retorna um erro
+# por que o valor nunca foi instanciado.

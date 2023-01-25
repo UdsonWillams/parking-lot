@@ -1,4 +1,5 @@
 from typing import List
+
 from pydantic import BaseModel, ValidationError, conint
 
 
@@ -16,19 +17,23 @@ class Model(BaseModel):
 
 
 data = dict(
-    list_of_ints=['1', 2, 'bad'],
-    a_float='not a float',
-    recursive_model={'lat': 4.2, 'lng': 'New York'},
+    list_of_ints=["1", 2, "bad"],
+    a_float="not a float",
+    recursive_model={"lat": 4.2, "lng": "New York"},
     gt_int=21,
 )
 
 try:
-    Model(**data) # em caso de erro de validação de tipo, retorna o campo e o tipo que ele espera
+    Model(
+        **data
+    )  # em caso de erro de validação de tipo, retorna o campo e o tipo que ele espera
 except ValidationError as e:
-    e.errors() # quantos erros retornaram na inicialização
+    e.errors()  # quantos erros retornaram na inicialização
     print(e)
 
 try:
-    Model(**data) # em caso de erro de validação de tipo, retorna mais dados em formato json
+    Model(
+        **data
+    )  # em caso de erro de validação de tipo, retorna mais dados em formato json
 except ValidationError as e:
     print(e.json())
