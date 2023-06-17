@@ -1,11 +1,11 @@
+from api.service.url_short_service import short_url, tiny_url
 from fastapi import FastAPI, status
 from fastapi.responses import JSONResponse
-from service.url_short_service import short_url, tiny_url
 
-app = FastAPI()
+shorter_api = FastAPI()
 
 
-@app.post("/return_a_tinyurl")
+@shorter_api.post("/return_a_tinyurl")
 def return_a_tinyurl(url: str):
     shorted_url = tiny_url(url)
     return JSONResponse(
@@ -13,7 +13,7 @@ def return_a_tinyurl(url: str):
     )
 
 
-@app.post("/short_url")
+@shorter_api.post("/short_url")
 def return_short_url(url: str):
     # recebe uma url, salva ela no banco com uma encurtada como referencia
     # com um prazo de validade.
@@ -23,7 +23,7 @@ def return_short_url(url: str):
     )
 
 
-@app.get("/normal_url_by_short")
+@shorter_api.get("/normal_url_by_short")
 def return_normal_url_by_short(url: str):
     # ao receber uma url encurtada, devo redirecionar pra url "original"
     ...

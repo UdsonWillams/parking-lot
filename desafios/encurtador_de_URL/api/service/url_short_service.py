@@ -1,8 +1,8 @@
 import re
 
-from exceptions.base_exceptions import BadURLException, ShorteningErrorException
+from api.exceptions.base_exceptions import BadURLException, ShorteningErrorException
 from fastapi import status
-from requests import get
+from httpx import get
 
 URL_REGEX = re.compile(
     r"(?i)\b((?:https?://|www\d{0,3}[.]|[a-z0-9.\-]+[.]"
@@ -16,7 +16,7 @@ API_URL = "http://tinyurl.com/api-create.php"
 def tiny_url(url):
     url = _clean_url(url)
     response = get(API_URL, params=dict(url=url))
-    if response.ok:
+    if response.status_code == status.HTTP_200_OK:
         return response.text.strip()
     raise ShorteningErrorException(
         response.content, status_code=status.HTTP_400_BAD_REQUEST
@@ -26,7 +26,7 @@ def tiny_url(url):
 def short_url(url):
     url = _clean_url(url)
     response = get(API_URL, params=dict(url=url))
-    if response.ok:
+    if response.status_code == status.HTTP_200_OK:
         return response.text.strip()
     raise ShorteningErrorException(
         response.content, status_code=status.HTTP_400_BAD_REQUEST
