@@ -2,7 +2,10 @@ import logging
 from datetime import datetime
 
 from api.config import Settings
-from api.db.db_orm import ShortUrlModel, ShortUrlRef
+from api.db.db_orm import (
+    ShortUrlModel,
+    ShortUrlRef,
+)
 from api.db.repository.exceptions import (
     CreateUrlException,
     DeleteUrlException,
@@ -10,7 +13,11 @@ from api.db.repository.exceptions import (
     UrlNotFoundException,
 )
 from fastapi import status
-from sqlalchemy import column, create_engine, insert
+from sqlalchemy import (
+    column,
+    create_engine,
+    insert,
+)
 from sqlalchemy.orm import sessionmaker
 
 settings = Settings()
@@ -76,8 +83,8 @@ class PostgresUserRepository:
             )
         return encrypted_url
 
-    def update(self, url_new_data: ShortUrlModel):
-        pass
+    # def update(self, url_new_data: ShortUrlModel):
+    #     pass
 
     def delete_by_id(self, encrypted_url: str):
         try:
