@@ -1,10 +1,16 @@
 import re
-from datetime import datetime, timedelta
+from datetime import (
+    datetime,
+    timedelta,
+)
 from uuid import uuid4
 
 from api.db.db_orm import ShortUrlModel
 from api.db.repository.postgres_shortner_repository import PostgresUserRepository
-from api.exceptions.base_exceptions import BadURLException, ShorteningErrorException
+from api.exceptions.base_exceptions import (
+    BadURLException,
+    ShorteningErrorException,
+)
 from fastapi import status
 from httpx import get
 

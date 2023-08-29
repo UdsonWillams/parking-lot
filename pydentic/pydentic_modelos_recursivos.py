@@ -1,11 +1,12 @@
-from typing import List, Optional
+from typing import (
+    List,
+    Optional,
+)
 
 from pydantic import BaseModel
 
-"""
-Documentação que fala mais sobre
-https://docs.pydantic.dev/usage/models/
-"""
+# Documentação que fala mais sobre
+# https://docs.pydantic.dev/usage/models/
 
 
 class Bebida(BaseModel):

@@ -1,6 +1,16 @@
-from api.service.url_short_service import redirect_to_encrypted_url, short_url, tiny_url
-from fastapi import FastAPI, status
-from fastapi.responses import JSONResponse, RedirectResponse
+from api.service.url_short_service import (
+    redirect_to_encrypted_url,
+    short_url,
+    tiny_url,
+)
+from fastapi import (
+    FastAPI,
+    status,
+)
+from fastapi.responses import (
+    JSONResponse,
+    RedirectResponse,
+)
 
 shortener_api = FastAPI()
 

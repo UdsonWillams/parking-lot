@@ -1,6 +1,10 @@
 from typing import List
 
-from pydantic import BaseModel, ValidationError, conint
+from pydantic import (
+    BaseModel,
+    ValidationError,
+    conint,
+)
 
 
 class Location(BaseModel):

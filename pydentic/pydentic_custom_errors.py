@@ -1,9 +1,11 @@
-from pydantic import BaseModel, ValidationError, validator
+from pydantic import (
+    BaseModel,
+    ValidationError,
+    validator,
+)
 
-"""
-Mais sobre validadores
-https://docs.pydantic.dev/usage/validators/
-"""
+# Mais sobre validadores
+# https://docs.pydantic.dev/usage/validators/
 
 
 class User(BaseModel):

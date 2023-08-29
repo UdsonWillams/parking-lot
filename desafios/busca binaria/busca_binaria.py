@@ -6,9 +6,8 @@ no site ou app. Qual solução você usaria?
 # resolução https://www.alura.com.br/artigos/busca-binaria-aprenda-implementar-python"
 
 
-from time import time
-
 import json
+from time import time
 
 
 def binary_search(data_list: list, searched_value: int) -> int | None:
@@ -30,14 +29,15 @@ def binary_search(data_list: list, searched_value: int) -> int | None:
             low_value = mid_Value + 1
     return None
 
+
 def normal_search(data_list: list, searched_value: int) -> int | None:
     index = 0
     for list_value in data_list:
         if list_value == searched_value:
-            return  index
+            return index
         index += 1
     return None
- 
+
 
 if __name__ == "__main__":
     searched_value = 2496
@@ -51,8 +51,14 @@ if __name__ == "__main__":
         elapsed_time = time() - comparative_time
         print(f"Elapsed time: {elapsed_time}")
         if returned_value:
-            print(f"The return of the search is: {returned_value} - This is the index value.")
-            print(f"Searched value: {searched_value} | Finded value: {list_Value[returned_value]}" + "\n" + 40 * "-")
+            print(
+                f"The return of the search is: {returned_value}"
+                "- This is the index value."
+            )
+            print(
+                f"Searched value: {searched_value} | "
+                "Finded value: {list_Value[returned_value]}" + "\n" + 40 * "-"
+            )
         else:
             print("The value is not finded" + "\n" + 40 * "-")
     print(50 * "=")
@@ -63,8 +69,14 @@ if __name__ == "__main__":
         elapsed_time = time() - comparative_time
         print(f"Elapsed time: {elapsed_time}")
         if returned_value:
-            print(f"The return of the search is: {returned_value} - This is the index value.")
-            print(f"Searched value: {searched_value} | Finded value: {list_Value[returned_value]}" + "\n" + 40 * "-")
+            print(
+                f"The return of the search is: {returned_value}"
+                " - This is the index value."
+            )
+            print(
+                f"Searched value: {searched_value} |"
+                f" Finded value: {list_Value[returned_value]}" + "\n" + 40 * "-"
+            )
         else:
             print("The value is not finded" + "\n" + 40 * "-")
     print(50 * "=")
