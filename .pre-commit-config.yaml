@@ -1,4 +1,24 @@
+# esses valores são locais, precisam das bibliotecas instaladas pelo pip no projeto.
+# Pre-Commit carregado xD
+
+default_language_version:
+    python: python3.10
+
 repos:
+
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.2.0
+    hooks:
+      - id: check-merge-conflict
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: debug-statements
+      - id: check-yaml
+      - id: check-docstring-first
+      - id: detect-private-key
+      - id: name-tests-test
+        args: [--django]
+
 -   repo: local
     hooks:
     -   id: black
@@ -22,9 +42,46 @@ repos:
         - "--profile"
         - "black"
         - "--filter-files"
+        - "--force-grid-wrap=2"
+        - "--multi-line=3"
         name: isort
         entry: isort
         require_serial: true
         language: python
 
-# esses valores são locais, precisam das bibliotecas instaladas pelo pip no projeto.
+    -   id: vulture
+        name: vulture
+        language: python
+        entry: vulture
+        args: [".", --exclude=venv-pre-commit/, --min-confidence=90, --ignore-names=cls]
+        types: [python]
+        pass_filenames: false
+        require_serial: true
+
+    -   id: safety
+        name: safety
+        entry: safety
+        language: system
+        files: pyproject.toml|requirements # Caso de usar poetry | Requirements normal.
+        args: [check,--full-report,--file]
+
+    -   id: bandit
+        name: bandit
+        entry: bandit
+        args: ["-c", "pyproject.toml"]
+        additional_dependencies: ["bandit[toml]"]
+        language: python
+        language_version: python3
+        types: [python]
+
+    # Comentando já que esse projeto não tem tests hehehe
+    # Hook customizado que roda os testes e trava caso o coverage seja menor que o esperado.
+    # Não recomendado para projetos que demoram muito fazendo os testes locais hihihi
+    # -   id: test
+    #     name: Run tests
+    #     entry: pytest --cov=app tests/ --cov-fail-under=100
+    #     language: system
+    #     types: [python]
+    #     pass_filenames: false
+    #     always_run: true
+    #     stages: ['push']
