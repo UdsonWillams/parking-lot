@@ -1,0 +1,3 @@
+teste = ""
+
+print(teste.isnumeric())
