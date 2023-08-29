@@ -1,0 +1,34 @@
+utilizar um back slash no codigo faz o interpretador "scapar" o valor posterior ao \
+ex.:
+print("dwdwdd \"ddw")
+>>> dwdwdd "ddw
+ou seja, usei as " para a string "teste", e tem outra dentro da strng que não da erro no interpreter "tes\"te"
+
+\b = backspace character, tira um caractere da str
+ex.: "teste\bteste" se torna "testteste"
+
+\f = ASCII Formfeed (FF) character
+n sei qual o uso real disso, mas faz a string se tornar uma escadinha, ex.:
+a
+  b
+    c
+      d
+
+\n = pula uma linha na string
+
+\N{<name>} = Character from Unicode database with given <name>
+ex.: print('\u2192 \N{rightwards arrow}')
+retorna duas setinhas >> uma pelo unicode, e outra pelo unicode arrow
+
+\r ou R = raw strings, retorna o valor cru da string, respeitando as aspas.
+ex.:
+print(R'foo\\bar')
+>>> foo\\bar # \b seria um backspace, mas nesse caso n faz nda.
+
+3 aspas """, podem scapar strings sem precisar do \ no final, ex.:
+print("""This is a
+string that spans
+across several lines""")
+retorna : This is a
+string that spans
+across several lines
