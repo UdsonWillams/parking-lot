@@ -4,13 +4,13 @@ from locust import (
 )
 
 
-class BffLocust(HttpUser):
+class TestLocust(HttpUser):
     """
     a classe de teste de carga
     """
 
     @task
-    def bff_get_user(self):
+    def get_user(self):
         """
         testando endpoint
         """
