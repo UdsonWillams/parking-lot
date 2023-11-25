@@ -41,9 +41,6 @@ class ConcreteProduct1(Product):
     def operation(self) -> str:  # redefine sua função operation
         return "{Retorno da classe ConcreteProduct1}"
 
-    def return_name(self) -> str:
-        return self.name
-
 
 class ConcreteProduct2(Product):
     def __init__(self, name="ConcreteProduct2") -> None:
