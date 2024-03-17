@@ -1,0 +1,17 @@
+Um programa síncrono é executado uma etapa de cada vez. 
+Mesmo com ramificações condicionais, loops e chamadas de função, 
+você ainda pode pensar no código em termos de realizar uma etapa 
+de execução de cada vez. Quando cada etapa for concluída, 
+o programa passa para a próxima.
+
+Um programa assíncrono se comporta de maneira diferente. 
+Ainda é necessária uma etapa de execução de cada vez, A diferença é 
+que o sistema não pode esperar que uma etapa de execução seja concluída antes de passar para a próxima.
+
+Isso significa que o programa passará para etapas de execução futuras, 
+mesmo que uma etapa anterior ainda não tenha sido concluída e 
+ainda esteja em execução em outro lugar. 
+Isso também significa que o programa sabe o que fazer quando uma etapa anterior terminar de ser executada.
+
+continuar estudando.
+https://realpython.com/python-async-features/#programming-parents-not-as-easy-as-it-looks
