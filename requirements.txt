@@ -8,3 +8,6 @@ pydantic==1.10.13
 typing_extensions==4.4.0
 virtualenv==20.17.1
 yt-dlp==2023.11.16
+vulture
+safety
+bandit
