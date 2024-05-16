@@ -4,10 +4,11 @@ ipdb==0.13.11
 isort==5.10.1
 pre-commit==2.20.0
 pre-commit-hooks==4.4.0
+vulture==2.11
+safety==3.2.0
+bandit==1.7.8
+
 pydantic==1.10.13
 typing_extensions==4.4.0
 virtualenv==20.17.1
 yt-dlp==2023.11.16
-vulture
-safety
-bandit
