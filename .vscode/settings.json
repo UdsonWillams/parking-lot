@@ -1,0 +1,42 @@
+{
+    "editor.fontSize": 14,
+    "editor.tabSize": 4,
+    "workbench.iconTheme": "vscode-icons",
+    "editor.lineHeight": 1.8,
+    "editor.rulers": [100, 120],
+    "workbench.startupEditor": "newUntitledFile",
+    "editor.fontLigatures": true,
+    "explorer.compactFolders": false,
+    "editor.minimap.enabled": false,
+    "editor.guides.bracketPairs": true,
+
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "prettier.tabWidth": 4,
+        "prettier.semi": true
+    },
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "prettier.tabWidth": 4
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "prettier.tabWidth": 4
+    },
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "prettier.tabWidth": 4
+    },
+
+    "[python]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "ms-python.black-formatter",
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "always"
+        }
+    },
+    "isort.args": ["--profile", "black"],
+    "terminal.integrated.enableMultiLinePasteWarning": "always",
+    "files.autoSave": "afterDelay",
+    "editor.formatOnSave": true
+}
