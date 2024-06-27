@@ -5,7 +5,8 @@ import (
 	"math/rand/v2"
 	"os/exec"
 	"runtime"
-	"syscall"
+
+	// "syscall"
 	"time"
 )
 
@@ -18,13 +19,14 @@ var tambor_com_bala = rand.IntN(7)
 func execute_linux() {
 	fmt.Print("POOOOOOOOOOOOOOOOOWWWWWWW!!!!!!!!!!")
 	time.Sleep(2 * time.Second)
-	syscall.Reboot(syscall.LINUX_REBOOT_CMD_RESTART)
+	// syscall.Reboot(syscall.LINUX_REBOOT_CMD_RESTART)
+	// n funciona no windows.
 }
 
 func execute_windows() {
 	fmt.Print("POOOOOOOOOOOOOOOOOWWWWWWW!!!!!!!!!!")
 	time.Sleep(2 * time.Second)
-	if err := exec.Command("cmd", "/C", "shutdown", "/t 0", "/r").Run(); err != nil {
+	if err := exec.Command("cmd", "/C", "shutdown", "/r", "/t", "4").Run(); err != nil {
 		fmt.Println("Failed to initiate shutdown:", err)
 	}
 }
