@@ -3,6 +3,7 @@ Utilizamos um exemplo bem simples agora, mas imagine ter que desenvolver uma fea
 de busca de alunos da Alura para que seja possível realizar a autenticação
 no site ou app. Qual solução você usaria?
 """
+
 # resolução https://www.alura.com.br/artigos/busca-binaria-aprenda-implementar-python"
 
 
@@ -40,43 +41,43 @@ def normal_search(data_list: list, searched_value: int) -> int | None:
 
 
 if __name__ == "__main__":
-    searched_value = 2496
-    with open("01_introduction_to_algorithms/items.json", "r") as file:
+    searched_value = 9536
+    with open("items.json", "r") as file:
         data: dict = json.load(file)
 
-    print(50 * "=")
-    for list_Value in data.values():
+    print("=" * 60)
+    print(f"🔍 Buscando valor: {searched_value}\n")
+
+    for idx, list_Value in enumerate(data.values(), 1):
+        list_Value = sorted(list_Value)
         comparative_time = time()
         returned_value = binary_search(list_Value, searched_value)
         elapsed_time = time() - comparative_time
-        print(f"Elapsed time: {elapsed_time}")
-        if returned_value:
-            print(
-                f"The return of the search is: {returned_value}"
-                "- This is the index value."
-            )
-            print(
-                f"Searched value: {searched_value} | "
-                "Finded value: {list_Value[returned_value]}" + "\n" + 40 * "-"
-            )
+        # Mostra tempo em ms se < 1s, senão em segundos
+        if elapsed_time < 1:
+            tempo_fmt = f"{elapsed_time * 1000:.3f} ms"
         else:
-            print("The value is not finded" + "\n" + 40 * "-")
-    print(50 * "=")
-    returned_value = None
-    for list_Value in data.values():
+            tempo_fmt = f"{elapsed_time:.3f} s"
+        if returned_value is not None:
+            print(f"[{idx}] Busca binária:")
+            print(f"  Tempo decorrido: {tempo_fmt}")
+            print(f"  ➜ Índice encontrado: {returned_value}")
+            print(f"  ➜ Valor encontrado: {list_Value[returned_value]}")
+            print("-" * 40)
+    print("=" * 60)
+
+    for idx, list_Value in enumerate(data.values(), 1):
         comparative_time = time()
         returned_value = normal_search(list_Value, searched_value)
         elapsed_time = time() - comparative_time
-        print(f"Elapsed time: {elapsed_time}")
-        if returned_value:
-            print(
-                f"The return of the search is: {returned_value}"
-                " - This is the index value."
-            )
-            print(
-                f"Searched value: {searched_value} |"
-                f" Finded value: {list_Value[returned_value]}" + "\n" + 40 * "-"
-            )
+        if elapsed_time < 1:
+            tempo_fmt = f"{elapsed_time * 1000:.3f} ms"
         else:
-            print("The value is not finded" + "\n" + 40 * "-")
-    print(50 * "=")
+            tempo_fmt = f"{elapsed_time:.3f} s"
+        if returned_value is not None:
+            print(f"[{idx}] Busca linear:")
+            print(f"  Tempo decorrido: {tempo_fmt}")
+            print(f"  ➜ Índice encontrado: {returned_value}")
+            print(f"  ➜ Valor encontrado: {list_Value[returned_value]}")
+            print("-" * 40)
+    print("=" * 60)
