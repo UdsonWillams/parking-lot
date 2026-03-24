@@ -1,4 +1,0 @@
-# Pega o valor do keyring passado
-keyring get yagmail udsonqa@gmail.com 
-# Deleta o valor do keyring passado
-keyring del yagmail "valor-do-email-passado"
